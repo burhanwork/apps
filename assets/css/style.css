@@ -512,6 +512,11 @@ body.dark-theme {
     height: 190px;
     margin-bottom: 1rem;
   }
+  .projects_button.button_small {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+  
 
   .my_profile {
     width: 175px;
