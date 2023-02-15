@@ -1,407 +1,276 @@
+
+
+<head><link rel="stylesheet" href="loader.css"></head>
+
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Burhan Rasool</title>
-    
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon">
-
-    <!-- Remix Icons -->
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="assets/css/style.css">
-
-   
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-      
+  <title>Loading Screen</title>
+  <style>
+    .loader {
+    --path: #2F3545;
+    --dot: #5628EE;
+    --duration: 3s;
+    width: 44px;
+    height: 44px;
+    position: relative;
+  }
+  .loader:before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    position: absolute;
+    display: block;
+    background: var(--dot);
+    top: 37px;
+    left: 19px;
+    transform: translate(-18px, -18px);
+    -webkit-animation: dotRect var(--duration) cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
+            animation: dotRect var(--duration) cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
+  }
+  .loader svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+  .loader svg rect,
+  .loader svg polygon,
+  .loader svg circle {
+    fill: none;
+    stroke: var(--path);
+    stroke-width: 10px;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+  }
+  .loader svg polygon {
+    stroke-dasharray: 145 76 145 76;
+    stroke-dashoffset: 0;
+    -webkit-animation: pathTriangle var(--duration) cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
+            animation: pathTriangle var(--duration) cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
+  }
+  .loader svg rect {
+    stroke-dasharray: 192 64 192 64;
+    stroke-dashoffset: 0;
+    -webkit-animation: pathRect 3s cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
+            animation: pathRect 3s cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
+  }
+  .loader svg circle {
+    stroke-dasharray: 150 50 150 50;
+    stroke-dashoffset: 75;
+    -webkit-animation: pathCircle var(--duration) cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
+            animation: pathCircle var(--duration) cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
+  }
+  .loader.triangle {
+    width: 48px;
+  }
+  .loader.triangle:before {
+    left: 21px;
+    transform: translate(-10px, -18px);
+    -webkit-animation: dotTriangle var(--duration) cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
+            animation: dotTriangle var(--duration) cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
+  }
+  
+  @-webkit-keyframes pathTriangle {
+    33% {
+      stroke-dashoffset: 74;
+    }
+    66% {
+      stroke-dashoffset: 147;
+    }
+    100% {
+      stroke-dashoffset: 221;
+    }
+  }
+  
+  @keyframes pathTriangle {
+    33% {
+      stroke-dashoffset: 74;
+    }
+    66% {
+      stroke-dashoffset: 147;
+    }
+    100% {
+      stroke-dashoffset: 221;
+    }
+  }
+  @-webkit-keyframes dotTriangle {
+    33% {
+      transform: translate(0, 0);
+    }
+    66% {
+      transform: translate(10px, -18px);
+    }
+    100% {
+      transform: translate(-10px, -18px);
+    }
+  }
+  @keyframes dotTriangle {
+    33% {
+      transform: translate(0, 0);
+    }
+    66% {
+      transform: translate(10px, -18px);
+    }
+    100% {
+      transform: translate(-10px, -18px);
+    }
+  }
+  @-webkit-keyframes pathRect {
+    25% {
+      stroke-dashoffset: 64;
+    }
+    50% {
+      stroke-dashoffset: 128;
+    }
+    75% {
+      stroke-dashoffset: 192;
+    }
+    100% {
+      stroke-dashoffset: 256;
+    }
+  }
+  @keyframes pathRect {
+    25% {
+      stroke-dashoffset: 64;
+    }
+    50% {
+      stroke-dashoffset: 128;
+    }
+    75% {
+      stroke-dashoffset: 192;
+    }
+    100% {
+      stroke-dashoffset: 256;
+    }
+  }
+  @-webkit-keyframes dotRect {
+    25% {
+      transform: translate(0, 0);
+    }
+    50% {
+      transform: translate(18px, -18px);
+    }
+    75% {
+      transform: translate(0, -36px);
+    }
+    100% {
+      transform: translate(-18px, -18px);
+    }
+  }
+  @keyframes dotRect {
+    25% {
+      transform: translate(0, 0);
+    }
+    50% {
+      transform: translate(18px, -18px);
+    }
+    75% {
+      transform: translate(0, -36px);
+    }
+    100% {
+      transform: translate(-18px, -18px);
+    }
+  }
+  @-webkit-keyframes pathCircle {
+    25% {
+      stroke-dashoffset: 125;
+    }
+    50% {
+      stroke-dashoffset: 175;
+    }
+    75% {
+      stroke-dashoffset: 225;
+    }
+    100% {
+      stroke-dashoffset: 275;
+    }
+  }
+  @keyframes pathCircle {
+    25% {
+      stroke-dashoffset: 125;
+    }
+    50% {
+      stroke-dashoffset: 175;
+    }
+    75% {
+      stroke-dashoffset: 225;
+    }
+    100% {
+      stroke-dashoffset: 275;
+    }
+  }
+  .loader {
+    display: inline-block;
+    margin: 0 16px;
+  }
+  
+  html {
+    -webkit-font-smoothing: antialiased;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  *:before, *:after {
+    box-sizing: border-box;
+  }
+  
+  body {
+    min-height: 100vh;
+    background: #F5F9FF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  body .dribbble {
+    position: fixed;
+    display: block;
+    right: 20px;
+    bottom: 20px;
+  }
+  body .dribbble img {
+    display: block;
+    height: 28px;
+  }
+  </style>
 </head>
 <body>
+  <div id="loader">
+    <div class="loader">
+        <svg viewBox="0 0 80 80">
+            <circle id="test" cx="40" cy="40" r="32"></circle>
+        </svg>
+    </div>
     
-
+    <div class="loader triangle">
+        <svg viewBox="0 0 86 80">
+            <polygon points="43 8 79 72 7 72"></polygon>
+        </svg>
+    </div>
     
+    <div class="loader">
+        <svg viewBox="0 0 80 80">
+            <rect x="8" y="8" width="64" height="64"></rect>
+        </svg>
+    </div>
     
-    <!-- Header Profile -->
-    <header class="profile container">
-        <!-- Theme Button -->
-        <i class="ri-moon-line change-theme" id="theme-button"></i>
+ 
+    
+  </div>
 
-        <div class="profile_container grid">
-            <div class="profile_data">
-                <div class="profile_border">
-                    <div class="my_profile">
-                        <!-- Insert your image -->
-                        <img src="assets/images/profile.png" alt="Profile Picture">
-                    </div>
-                </div>
-                <h2 class="profile_name">Burhan Rasool</h2>
-                <h3 class="profile_profession">SOFTWARE ENGINEER</h3>
-
-                <ul class="profile_social">
-                    <a href="https://www.instagram.com/burhanrasool909/" target="_blank" class="profile_social_link">
-                        <i class="ri-instagram-line"></i>
-                    </a>
-                    <a href="https://www.linkedin.com/in/burhan909//" target="_blank" class="profile_social_link">
-                        <i class="ri-linkedin-box-line"></i>
-                    </a>
-                    <a href="https://github.com/burhan909" target="_blank" class="profile_social_link">
-                        <i class="ri-github-line"></i>
-                    </a>
-                </ul>
-            </div>
-
-            <div class="profile_info grid">
-                <div class="profile_info_group">
-                    <h3 class="profile_info_number">5</h3>
-                    <p class="profile_info_description">years of <br> work</p>
-                </div>
-                <div class="profile_info_group">
-                    <h3 class="profile_info_number">+300</h3>
-                    <p class="profile_info_description">Completed <br> projects</p>
-                </div>
-                <div class="profile_info_group">
-                    <h3 class="profile_info_number">+290</h3>
-                    <p class="profile_info_description">Satisfied <br> customers</p>
-                </div>
-            </div>
-
-        <div class="profile_buttons">
-                <!-- Insert your CV -->
-                <a href="assets/pdf/Burhan Resume.pdf" download="" class="button">
-                    Download CV <i class="ri-download-line"></i>
-                </a>
-
-            <div class="profile_buttons_small">
-                <!-- Insert your whatsapp -->
-                <a href="https://api.whatsapp.com/send/?phone=923036575669&text=Hello," target="_blank" class="button button_small button_gray">
-                    <i class="ri-whatsapp-line"></i>
-                </a>
-                <!-- Insert your email -->
-                <a href="mailto: burhansadiq1995@gmail.com" target="_blank" class="button button_small button_gray">
-                    <i class="ri-mail-line"></i>
-                </a>
-            </div>
-        </div>
-    </header>
-
-    <!-- Main -->
-    <main class="main">
-        <section class="filters container">
-            <!-- Filters Tabs -->
-            <ul class="filters_content">
-                <button class="filters_button filter-tab-active" data-target="#projects">
-                    Projects
-                </button>
-
-                <button class="filters_button" data-target="#skills">
-                    Skills
-                </button>̉̉
-            </ul>
-           
-
-
-
-
-
-            <div class="filters_sections">
-                <!-- Projects -->
-                <div class="projects_content grid filters_active" data-content id="projects">
-                    <article class="projects_card">
-                        <img src="assets/samples/sample3.jpeg" alt="Project 1" class="projects_img">
-                        <div class="projects_modal">
-                            <div>
-                                <span class="projects_subtitle">IOS App</span>
-                                <h3 class="projects_title">Wemox</h3>
-                                <p style="color: white;" class="projects_text">Wemox is an handle heavy traffic and users. </p><br>
-                                
-                                
-                                <a href="#" class="projects_button button button_small">
-                                    <i class="ri-eye-line"></i> Live Link
-                                  </a>
-                                  <a href="#" class="projects_button button button_small">
-                                    <i class="ri-github-fill"></i> Github
-                                  </a>
-                                  <a href="#" class="projects_button button button_small">
-                                    <i class="ri-information-fill"></i> Details
-                                  </a>
-                                  
-                              
-                            </div>
-                              
-                        </div>
-                    </article>
-            
-                    <article class="projects_card">
-                        <img src="assets/samples/sample2.jpeg" alt="Project 2" class="projects_img">
-                        <div class="projects_modal">
-                            <div>
-                                <span class="projects_subtitle">IOS App</span>
-                                <h3 class="projects_title">Taxi</h3>
-                                <p style="color: white;" class="projects_text">Taxi is an handle heavy traffic and users. </p><br>
-                                
-                                
-                                <a href="#" class="projects_button button button_small">
-                                    <i class="ri-eye-line"></i> Live Link
-                                  </a>
-                                  <a href="#" class="projects_button button button_small">
-                                    <i class="ri-github-fill"></i> Github
-                                  </a>
-                                  <a href="#" class="projects_button button button_small">
-                                    <i class="ri-information-fill"></i> Details
-                                  </a>
-                            </div>
-                        </div>
-                    </article>
-            
-                    <article class="projects_card">
-                        <img src="assets/samples/sample5.jpeg" alt="Project 3" class="projects_img">
-                        <div class="projects_modal">
-                            <div>
-                                <span class="projects_subtitle">IOS App</span>
-                                <h3 class="projects_title">Taxi</h3>
-                                <p style="color: white;" class="projects_text">Taxi is an handle heavy traffic and users. </p><br>
-                                
-                                
-                                <a href="#" class="projects_button button button_small">
-                                    <i class="ri-eye-line"></i> Live Link
-                                  </a>
-                                  <a href="#" class="projects_button button button_small">
-                                    <i class="ri-github-fill"></i> Github
-                                  </a>
-                                  <a href="#" class="projects_button button button_small">
-                                    <i class="ri-information-fill"></i> Details
-                                  </a>
-                            </div>
-                        </div>
-                    </article>
-            
-                    <article class="projects_card">
-                        <img src="assets/samples/sample1.jpeg" alt="Project 4" class="projects_img">
-                        <div class="projects_modal">
-                            <div>
-                                <span class="projects_subtitle">IOS App</span>
-                                <h3 class="projects_title">Taxi</h3>
-                                <p style="color: white;" class="projects_text">Taxi is an handle heavy traffic and users. </p><br>
-                                
-                                
-                                <a href="#" class="projects_button button button_small">
-                                    <i class="ri-eye-line"></i> Live Link
-                                  </a>
-                                  <a href="#" class="projects_button button button_small">
-                                    <i class="ri-github-fill"></i> Github
-                                  </a>
-                                  <a href="#" class="projects_button button button_small">
-                                    <i class="ri-information-fill"></i> Details
-                                  </a>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="projects_card">
-                        <img src="assets/samples/App Sample 8.jpeg" alt="Project 3" class="projects_img">
-                        <div class="projects_modal">
-                            <div>
-                                <span class="projects_subtitle">IOS App</span>
-                                <h3 class="projects_title">Taxi</h3>
-                                <p style="color: white;" class="projects_text">Taxi is an handle heavy traffic and users. </p><br>
-                                
-                                
-                                <a href="#" class="projects_button button button_small">
-                                    <i class="ri-eye-line"></i> Live Link
-                                  </a>
-                                  <a href="#" class="projects_button button button_small">
-                                    <i class="ri-github-fill"></i> Github
-                                  </a>
-                                  <a href="#" class="projects_button button button_small">
-                                    <i class="ri-information-fill"></i> Details
-                                  </a>
-                            </div>
-                        </div>
-                    </article>
-            
-                    <article class="projects_card">
-                        <img src="assets/samples/sample7.jpeg" alt="Project 4" class="projects_img">
-                        <div class="projects_modal">
-                            <div>
-                                <span class="projects_subtitle">IOS App</span>
-                                <h3 class="projects_title">Taxi</h3>
-                                <p style="color: white;" class="projects_text">Taxi is an handle heavy traffic and users. </p><br>
-                                
-                                
-                                <a href="#" class="projects_button button button_small">
-                                    <i class="ri-eye-line"></i> Live Link
-                                  </a>
-                                  <a href="#" class="projects_button button button_small">
-                                    <i class="ri-github-fill"></i> Github
-                                  </a>
-                                  <a href="#" class="projects_button button button_small">
-                                    <i class="ri-information-fill"></i> Details
-                                  </a>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-            </div>
-            
-          
-            
-
-
-
-
-
-
-
-                <!-- Skills -->
-                <div class="skills_content grid" data-content id="skills">
-                    <div class="skills_area">
-                        <h3 class="skills_title">
-                            
-                        </h3>
-                        <div class="skills_box">
-                            <div class="skills_group">
-                                <div class="skills_data">
-                                    <i class="ri-checkbox-circle-line"></i>
-                                    <div>
-                                        <h3 class="skills_name">Flutter</h3>
-                                        <span class="skills_level">Expert</span>
-                                    </div>
-                                </div>
-                                
-                                <div class="skills_data">
-                                    <i class="ri-checkbox-circle-line"></i>
-                                    <div>
-                                        <h3 class="skills_name">C++</h3>
-                                        <span class="skills_level">Expert</span>
-                                    </div>
-                                </div>
-
-                                <div class="skills_data">
-                                    <i class="ri-checkbox-circle-line"></i>
-                                    <div>
-                                        <h3 class="skills_name">Swift</h3>
-                                        <span class="skills_level">Intermediate</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="skills_group">
-                                <div class="skills_data">
-                                    <i class="ri-checkbox-circle-line"></i>
-                                    <div>
-                                        <h3 class="skills_name">Node.js</h3>
-                                        <span class="skills_level">Expert</span>
-                                    </div>
-                                </div>
-                                
-                                <div class="skills_data">
-                                    <i class="ri-checkbox-circle-line"></i>
-                                    <div>
-                                        <h3 class="skills_name">REST API's</h3>
-                                        <span class="skills_level">Expert</span>
-                                    </div>
-                                </div>
-
-                                <div class="skills_data">
-                                    <i class="ri-checkbox-circle-line"></i>
-                                    <div>
-                                        <h3 class="skills_name">Data Structures</h3>
-                                        <span class="skills_level">Expert</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="skills_area">
-                        <h3 class="skills_title">
-                          
-                        </h3>
-                        <div class="skills_box">
-                            <div class="skills_group">
-                                <div class="skills_data">
-                                    <i class="ri-checkbox-circle-line"></i>
-                                    <div>
-                                        <h3 class="skills_name">Python </h3>
-                                        <span class="skills_level">Intermediate</span>
-                                    </div>
-                                </div>
-                                
-                                <div class="skills_data">
-                                    <i class="ri-checkbox-circle-line"></i>
-                                    <div>
-                                        <h3 class="skills_name">.Net C#</h3>
-                                        <span class="skills_level">Intermediate</span>
-                                    </div>
-                                </div>
-
-                                <div class="skills_data">
-                                    <i class="ri-checkbox-circle-line"></i>
-                                    <div>
-                                        <h3 class="skills_name">Firebase</h3>
-                                        <span class="skills_level">Intermediate</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="skills_group">
-                                <div class="skills_data">
-                                    <i class="ri-checkbox-circle-line"></i>
-                                    <div>
-                                        <h3 class="skills_name">HTML/CSS</h3>
-                                        <span class="skills_level">Expert</span>
-                                    </div>
-                                </div>
-                                
-                                <div class="skills_data">
-                                    <i class="ri-checkbox-circle-line"></i>
-                                    <div>
-                                        <h3 class="skills_name">Machine Learning</h3>
-                                        <span class="skills_level">Intermediate</span>
-                                    </div>
-                                </div>
-
-                                <div class="skills_data">
-                                    <i class="ri-checkbox-circle-line"></i>
-                                    <div>
-                                        <h3 class="skills_name">Java</h3>
-                                        <span class="skills_level">Basic</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>dfs 
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-          const loadingContainer = document.querySelector(".loading-container");
-          loadingContainer.style.display = "flex";
-          
-          setTimeout(function() {
-            loadingContainer.style.display = "none";
-          }, 2000);
-        });
-      </script>
-    <!-- Footer -->
-    <footer class="footer container">
-        <span class="footer_copy">
-            &#169; Burhan Rasool. All rights reserved
-        </span>
-    </footer>
-
-    <!-- Scroll Reveal -->
-    <script src="assets/js/scrollreveal.min.js"></script>
-
-    <!-- Main JS -->
-    <script src="assets/js/main.js"></script>
-
-
+  <script>
+    setTimeout(function() {
+      window.location.href = "./home.html";
+    }, 4000);
+  </script>
 </body>
 </html>
+
+
+
+
+
+
+

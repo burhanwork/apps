@@ -62,58 +62,12 @@
 
 
 
-
-
-
-
-
 body {
   font-family: var(--body-font);
   font-size: var(--normal-font-size);
   background-color: var(--body-color);
   color: var(--text-color);
   transition: .3s; /* For animation dark mode */
-}
-.loader-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color: #f5f5f5;
-}
-
-.loader {
-  display: inline-block;
-  margin: 20px;
-  width: 80px;
-  height: 80px;
-  position: relative;
-}
-
-.loader circle {
-  stroke: #6c757d;
-  stroke-linecap: round;
-  animation: loader 1s ease-in-out infinite;
-}
-
-.loader triangle polygon {
-  stroke: #17a2b8;
-  stroke-linecap: round;
-  animation: loader 1.5s ease-in-out infinite;
-}
-
-.loader rect {
-  fill: #007bff;
-  animation: loader 2s ease-in-out infinite;
-}
-
-@keyframes loader {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
 }
 
 
