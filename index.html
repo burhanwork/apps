@@ -14,9 +14,17 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
+
+   
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+      
 </head>
 <body>
+    
 
+    
+    
     <!-- Header Profile -->
     <header class="profile container">
         <!-- Theme Button -->
@@ -364,13 +372,23 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div>dfs 
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+          const loadingContainer = document.querySelector(".loading-container");
+          loadingContainer.style.display = "flex";
+          
+          setTimeout(function() {
+            loadingContainer.style.display = "none";
+          }, 2000);
+        });
+      </script>
     <!-- Footer -->
     <footer class="footer container">
         <span class="footer_copy">
@@ -383,6 +401,7 @@
 
     <!-- Main JS -->
     <script src="assets/js/main.js"></script>
+
 
 </body>
 </html>
