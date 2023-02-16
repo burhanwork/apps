@@ -225,6 +225,10 @@ body.dark-theme {
   color: var(--first-color);
 }
 
+.projects_button img {
+  height: 10px;
+}
+
 .profile_info {
   grid-template-columns: repeat(3, max-content);
   justify-content: center;
@@ -378,6 +382,7 @@ body.dark-theme {
 .skills_content {
   row-gap: 3.5rem;
 }
+
 
 .skills_title {
   font-size: var(--h3-font-size);
